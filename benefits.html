@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ваши Бенефиты</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --benefits-accent: #ff6a00;
+      --benefits-muted: #7f8a97;
+    }
+
+    .benefits-card {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 6px 24px rgba(16, 24, 40, 0.08);
+      padding: 2rem;
+    }
+
+    .benefits-title {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .75rem;
+    }
+
+    .benefits-title-dot {
+      width: .5rem;
+      height: .5rem;
+      background: var(--benefits-accent);
+      border-radius: 50%;
+      flex: 0 0 .5rem;
+    }
+
+    .benefits-subtitle { color: var(--benefits-muted); }
+
+    .benefits-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8eef7;
+      color: #3b5ccc;
+      font-weight: 700;
+      margin-right: .75rem;
+      box-shadow: inset 0 0 0 2px rgba(59, 92, 204, .15);
+    }
+
+    /* Accordion styles */
+    .benefits-accordion .accordion-item { border: 0; background: transparent; }
+    .benefits-accordion .accordion-button {
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
+      box-shadow: none;
+      gap: .5rem;
+      color: #111827;
+    }
+    .benefits-accordion .accordion-button:focus { box-shadow: none; }
+    .benefits-accordion .accordion-body {
+      padding: .25rem 0 .75rem calc(2.5rem + .25rem);
+      color: var(--benefits-muted);
+    }
+    .benefits-accordion .marker {
+      width: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: var(--benefits-muted);
+      flex: 0 0 2.5rem;
+    }
+    .benefits-accordion .marker .dot {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 50%;
+      background: var(--benefits-accent);
+      display: none;
+    }
+    .benefits-accordion .accordion-button:not(.collapsed) .marker .num { display: none; }
+    .benefits-accordion .accordion-button:not(.collapsed) .marker .dot { display: inline-block; }
+
+    .benefits-figure {
+      border-radius: .75rem;
+      overflow: hidden;
+      background: #f3f4f6;
+    }
+    .benefits-figure img { width: 100%; height: auto; display: block; }
+
+    @media (min-width: 992px) {
+      .benefits-card { padding: 2.5rem 2.5rem; }
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <div class="benefits-card">
+          <div class="row g-4 align-items-center">
+            <!-- Left: Text and accordion -->
+            <div class="col-12 col-lg-6">
+              <div class="benefits-title">
+                <span class="benefits-title-dot"></span>
+                <h2 class="h3 m-0">Бенефиты</h2>
+              </div>
+              <p class="benefits-subtitle mb-4">Выберите пункт, чтобы посмотреть детали.</p>
+
+              <div class="accordion benefits-accordion" id="benefitsAccordion">
+                <!-- 01: Teambuilding (opened) -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-01">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-01" aria-expanded="true" aria-controls="collapse-01">
+                      <span class="marker"><span class="num">01</span><span class="dot"></span></span>
+                      <span class="fw-normal">Teambuilding</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-01" class="accordion-collapse collapse show" aria-labelledby="heading-01" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Dedicated budget and time to bond as a team, wherever you are.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 02: Medical Insurance -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-02">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-02" aria-expanded="false" aria-controls="collapse-02">
+                      <span class="marker"><span class="num">02</span><span class="dot"></span></span>
+                      <span class="fw-normal">Medical Insurance</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-02" class="accordion-collapse collapse" aria-labelledby="heading-02" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Comprehensive health insurance for employees.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 03: Workstation -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-03">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-03" aria-expanded="false" aria-controls="collapse-03">
+                      <span class="marker"><span class="num">03</span><span class="dot"></span></span>
+                      <span class="fw-normal">Workstation</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-03" class="accordion-collapse collapse" aria-labelledby="heading-03" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Modern equipment and budget for your ideal setup.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 04: Paid Time Off -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-04">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-04" aria-expanded="false" aria-controls="collapse-04">
+                      <span class="marker"><span class="num">04</span><span class="dot"></span></span>
+                      <span class="fw-normal">Paid Time Off</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-04" class="accordion-collapse collapse" aria-labelledby="heading-04" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Generous PTO policy for rest and balance.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 05: Certifications -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-05">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-05" aria-expanded="false" aria-controls="collapse-05">
+                      <span class="marker"><span class="num">05</span><span class="dot"></span></span>
+                      <span class="fw-normal">Certifications</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-05" class="accordion-collapse collapse" aria-labelledby="heading-05" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Budget for professional courses and certifications.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 06: Referral Program -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-06">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-06" aria-expanded="false" aria-controls="collapse-06">
+                      <span class="marker"><span class="num">06</span><span class="dot"></span></span>
+                      <span class="fw-normal">Referral Program</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-06" class="accordion-collapse collapse" aria-labelledby="heading-06" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Rewards for recommending successful candidates.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 07: Occasional Gifts -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-07">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-07" aria-expanded="false" aria-controls="collapse-07">
+                      <span class="marker"><span class="num">07</span><span class="dot"></span></span>
+                      <span class="fw-normal">Occasional Gifts</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-07" class="accordion-collapse collapse" aria-labelledby="heading-07" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Holiday and milestone presents.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 08: Loyalty Program -->
+                <div class="accordion-item">
+                  <h3 class="accordion-header" id="heading-08">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-08" aria-expanded="false" aria-controls="collapse-08">
+                      <span class="marker"><span class="num">08</span><span class="dot"></span></span>
+                      <span class="fw-normal">Loyalty Program</span>
+                    </button>
+                  </h3>
+                  <div id="collapse-08" class="accordion-collapse collapse" aria-labelledby="heading-08" data-bs-parent="#benefitsAccordion">
+                    <div class="accordion-body">
+                      Long-term loyalty rewards and perks.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Image -->
+            <div class="col-12 col-lg-6">
+              <figure class="benefits-figure m-0 ratio ratio-4x3">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1740&auto=format&fit=crop" alt="Team taking a selfie" class="object-fit-cover" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
